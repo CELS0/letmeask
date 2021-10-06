@@ -1,21 +1,78 @@
-#page-auth{
-    display: flex;
+#page-auth {
+    display    : flex;
     align-items: stretch;
-    height: 100vh;
+    height     : 100vh;
 
-    aside{
-        flex: 7;
+    aside {
+        flex      : 7;
         background: #450585;
-        color: #fff;
+        color     : #fff;
 
-        display: flex;
-        flex-direction: column;
+        display        : flex;
+        flex-direction : column;
         justify-content: center;
 
         padding: 120px 80px;
     }
-    
-    main{
+
+    img {
+        max-width: 320px;
+    }
+
+    strong {
+        font       : 700 36px 'Poppins', sans-serif;
+        line-height: 42px;
+        margin-top : 16px;
+    }
+
+    p {
+        font-size  : 24px;
+        line-height: 32px;
+        margin-top : 16px;
+        color      : #f8f8
+    }
+
+    main {
         flex: 8;
+
+        padding: 0 32px;
+
+        display        : flex;
+        align-items    : center;
+        justify-content: center;
+    }
+
+    .main-content {
+        display       : flex;
+        flex-direction: column;
+        width         : 100%;
+        max-width     : 320px;
+        align-items   : stretch;
+        text-align    : center;
+
+        >img {
+            align-items: center;
+        }
+
+        form {
+            input: {
+                height       : 58px;
+                border-radius: 8px;
+                padding      : 0 16;
+                background   : #FFF;
+                border       : 1px solid #a8a8b8;
+            }
+
+            buttom: {
+                margin-top: 16px;
+            }
+
+            buttom, input {
+                width : 100%;
+            }
+        }
+    }
+    .separator{
+        
     }
 }
