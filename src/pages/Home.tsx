@@ -1,26 +1,23 @@
-import {useHistory} from 'react-router-dom';
-
 import illustrationImg from '../assets/images/illustration.svg';
 import logoImg from '../assets/images/logo.svg';
 import googleIconImg from '../assets/images/google-icon.svg';
-import {auth, firebase} from '../services/firebase'
 
 import '../styles/auth.scss';
 import { Button } from '../components/Button';
+import { useHistory } from 'react-router-dom';
+import { useAuth } from '../hooks/useAuth';
 
 export function Home() {
-    const history =useHistory();
-    
-    function handleCreateRoon(){
-        const provider = new firebase.auth.GoogleAuthProvider();
+    const { user, signInWithGoogle } = useAuth();
+    const history = useHistory();
 
-        auth.signInWithPopup(provider).then(result => {
-            console.log(result);
-        })
+    async function handleCreateRoon() {
+        if(!user){
+           await signInWithGoogle();
+        }
 
-        // history.push('/rooms/new')
+        history.push('/rooms/new')
     }
-
     return (
         <div id="page-auth">
             <aside>
@@ -38,8 +35,8 @@ export function Home() {
                     <div className="separator">ou entre em uma sala</div>
                     <form>
                         <input
-                        type="text"
-                        placeholder="Digite o código da sala"
+                            type="text"
+                            placeholder="Digite o código da sala"
                         />
                         <Button type="submit">
                             Entrar na sala
