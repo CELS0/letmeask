@@ -34,7 +34,7 @@ export function Home() {
             alert('Room does not exist');
             return;
         }
-        history.push('/rooms/${roomCode}');
+        history.push(`/rooms/${roomCode}`);
     }
         return (
             <div id="page-auth">
